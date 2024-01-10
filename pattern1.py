@@ -12,7 +12,7 @@ while i<n:
         print(j,end=" ")
         j = j+1
     print()
+    
     i=i+1
+    
 
-print("Done")
-print("congo")
