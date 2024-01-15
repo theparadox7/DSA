@@ -1,3 +1,6 @@
+#convert decimal to binary
+
+
 n = int(input("Enter the number to be converted"))
 i=0
 ans =0
