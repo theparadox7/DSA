@@ -8,3 +8,5 @@ hash = [0]*10
 for i in range(0,n):
     hash[arr[i]] += 1
 
+#printing the number of times appeared
+
