@@ -15,3 +15,6 @@ for i in range(0,len(arr)):
         sec_largest = arr[i]
 
 print(sec_largest)
+
+
+#big o of 2n
