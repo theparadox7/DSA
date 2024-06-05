@@ -10,3 +10,4 @@ while n != 0:
     n = n>>1
     i=i+1
 print(ans)
+print(ans)
