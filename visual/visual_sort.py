@@ -6,7 +6,6 @@ import os
 # Initialize the size with the total numbers to sort
 numbers = []
 size = 200
-gap = 4
 
 # Function for swapping two numbers
 def swap(xp, yp):
@@ -16,7 +15,7 @@ def swap(xp, yp):
 def save_frame(numbers, step, algorithm):
     fig, ax = plt.subplots()
     ax.bar(range(len(numbers)), numbers)
-    plt.title(f"{algorithm} - Step {step}")
+    plt.title(f"{algorithm}")  # Removed step number from title
     plt.xlabel('Index')
     plt.ylabel('Value')
 
@@ -24,11 +23,12 @@ def save_frame(numbers, step, algorithm):
     filename = f"static/frames/{algorithm}_step_{step}.png"
     plt.savefig(filename)
     plt.close(fig)
+    print(f"Saved frame: {filename}")  # Debug print
 
 # Selection sort function
 def selsort(numbers):
     size = len(numbers)
-    for i in range(size - 1):
+    for i in range(size):
         min_idx = i
         for j in range(i + 1, size):
             if numbers[j] < numbers[min_idx]:
