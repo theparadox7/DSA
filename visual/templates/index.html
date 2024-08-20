@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting Visualization</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Sorting Visualization</h1>
+    <form id="sortForm">
+        <label for="algorithm">Choose a sorting algorithm:</label>
+        <select id="algorithm" name="algorithm">
+            <option value="Selection Sort">Selection Sort</option>
+            <!-- Add more options here -->
+        </select>
+        <label for="size">Array Size:</label>
+        <input type="number" id="size" name="size" value="200" min="1" max="1000">
+        <button type="submit">Sort</button>
+    </form>
+    <div id="result">
+        <!-- The images will be inserted here by JavaScript -->
+    </div>
+    <script src="{{ url_for('static', filename='js/sort.js') }}"></script>
+</body>
+</html>

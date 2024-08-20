@@ -1,9 +1,9 @@
 import time
 import random
 import matplotlib.pyplot as plt
+import os
 
-# Initialize the size with the total numbers to sorted
-# and the gap to be maintained in graph
+# Initialize the size with the total numbers to sort
 numbers = []
 size = 200
 gap = 4
@@ -12,56 +12,45 @@ gap = 4
 def swap(xp, yp):
     return yp, xp
 
+# Save frame function
+def save_frame(numbers, step, algorithm):
+    fig, ax = plt.subplots()
+    ax.bar(range(len(numbers)), numbers)
+    plt.title(f"{algorithm} - Step {step}")
+    plt.xlabel('Index')
+    plt.ylabel('Value')
+
+    # Save frame
+    filename = f"static/frames/{algorithm}_step_{step}.png"
+    plt.savefig(filename)
+    plt.close(fig)
+
 # Selection sort function
 def selsort(numbers):
+    size = len(numbers)
     for i in range(size - 1):
-
-        # Find the minimum element in unsorted array
         min_idx = i
-
         for j in range(i + 1, size):
             if numbers[j] < numbers[min_idx]:
                 min_idx = j
-
-        # Swap the found minimum element with the first element
         numbers[min_idx], numbers[i] = swap(numbers[min_idx], numbers[i])
-
-        # Function to show transition in swapping
-        plt.bar([i for i in range(len(numbers))], numbers)
-        plt.show(block=False)
-        plt.pause(0.1)
-        plt.clf()
+        save_frame(numbers, i, 'Selection Sort')
 
 # Driver program
 def main():
-
     # Initializing the array
     for i in range(1, size + 1):
         numbers.append(i)
 
-    # Find a seed and shuffle the array to make it random.
-    # Here different type of array can be taken to results
-    # such as nearly sorted, already sorted, reverse sorted to visualize the result
+    # Shuffle the array to make it random
     random.seed(time.time())
     random.shuffle(numbers)
 
-    # Initial plot of numbers in graph taking
-    # the vector position as x-axis and its
-    # corresponding value will be the height of line.
-    plt.bar([i for i in range(len(numbers))], numbers)
-    plt.show(block=False)
-    plt.pause(0.1)
-    plt.clf()
+    # Create directory for frames if it does not exist
+    os.makedirs('static/frames', exist_ok=True)
 
     # Call sort
     selsort(numbers)
-
-    for i in range(size):
-        print(numbers[i], end=" ")
-    print()
-
-    # Wait for sometime
-    time.sleep(5)
 
 if __name__ == "__main__":
     main()
