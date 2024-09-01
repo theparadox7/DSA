@@ -40,18 +40,26 @@ Node* arrayToLl(vector<int>arr)
     return Head;
 }
 
-int main()
-{
-    vector<int>arr = {0,1,2,3,4,3};
-    Node* Head =  arrayToLl(arr);
 
+int LengthOfLL(Node* Head)
+{
+    int cnt = 0;
     // Traversal
     Node* Temp = Head;
     while (Temp)
     {
-        cout<< Temp->data<<endl;
+        // cout<< Temp->data<<endl;
         Temp = Temp->next;
+        cnt ++;
     }
+    return cnt;
+
+}
+int main()
+{
+    vector<int>arr = {0,1,2,3,4,3};
+    Node* Head =  arrayToLl(arr);
+    cout<< LengthOfLL(Head);
     
     return 0;
 
