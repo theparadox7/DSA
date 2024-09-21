@@ -18,7 +18,8 @@ int largestarr(vector<int>& a) {
 
 int main(){
     vector<int>arr = {2,4,6,8};
-    largestarr(arr);
-
+    int largest =largestarr(arr);
+    cout<<largest<<endl;
+    
 }
 
